@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Six | Milan Design</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* WATCH BUTTON */
+    .watch-btn {
+      display: block;
+      width: max-content;
+      margin: 20px auto 60px;
+      padding: 14px 28px;
+      border-radius: 14px;
+      background: #7cecff;
+      color: #071018;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .watch-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(124, 236, 255, 0.5);
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal video {
+      width: min(420px, 90%);
+      border-radius: 20px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container fade-in">
+
+    <a href="projects.html" class="back">← Back to Projects</a>
+
+    <div class="tag">Client Project // Social Media Campaign</div>
+
+    <h1 class="project-header">
+      Informative
+      <span class="blue">Animated Video</span>
+    </h1>
+
+    <p class="intro-text">
+      Client provided us with the script and the goal was to create a typography animation that aligns perfectly and
+      explains the script with elements and assets.
+    </p>
+
+    <!-- PREVIEW VIDEO (NOW WITH CONTROLS) -->
+    <div class="single-video">
+      <video id="previewVideo" autoplay muted loop playsinline controls>
+        <source src="assets/images/Short infomative.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- BUTTON -->
+    <div class="watch-btn" onclick="openModal()">Watch Full Video</div>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+      <div class="close" onclick="closeModal()">✕</div>
+
+      <video id="modalVideo" controls>
+        <source src="assets/images/Infomative Animatied video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="bento-grid">
+      <div class="bento-card bento-half" style="padding: 40px; justify-content: center;">
+        <h2>What I Did</h2>
+        <p>
+          • Created matching animations aligned with the client’s script and messaging<br><br>
+          • Designed visual elements to clearly explain and enhance the narrative<br><br>
+          • Ensured smooth motion, pacing, and readability throughout the animation<br><br>
+          • Delivered an engaging and informative animated video for digital platforms
+        </p>
+      </div>
+
+      <div class="bento-card bento-half" style="padding: 40px; justify-content: center;">
+        <h2>Tools Used</h2>
+        <ul class="project-list">
+          <li>Adobe After Effects</li>
+          <li>Motion Design & Animation</li>
+          <li>Compositing & Visual Effects</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const modal = document.getElementById("modal");
+    const previewVideo = document.getElementById("previewVideo");
+    const modalVideo = document.getElementById("modalVideo");
+
+    function openModal() {
+      previewVideo.pause(); // pause preview
+      modal.classList.add("active");
+      modalVideo.currentTime = 0;
+      modalVideo.play();
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+      modalVideo.pause();
+      previewVideo.play(); // resume preview
+    }
+
+    // click outside to close
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+  </script>
+
+</body>
+
+</html>
