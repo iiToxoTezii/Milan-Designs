@@ -19,46 +19,11 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-
-  background-image:
-    linear-gradient(rgba(124, 236, 255, 0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 236, 255, 0.10) 1px, transparent 1px);
-
-  background-size: 50px 50px;
-
-  animation: gridMove 20s linear infinite;
-
-  pointer-events: none;
-  z-index: -2;
-}
-
-/* Smooth grid movement */
-@keyframes gridMove {
-  from {
-    background-position: 0 0, 0 0;
-  }
-
-  to {
-    background-position: 50px 50px, 50px 50px;
-  }
-}
-
-
-/* ===== ANIMATED GRADIENT GLOW ===== */
-/* ===== SUBTLE ANIMATED GRID ===== */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-
   background-image:
     linear-gradient(rgba(124, 236, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(124, 236, 255, 0.05) 1px, transparent 1px);
-
   background-size: 60px 60px;
-
   animation: gridMove 40s linear infinite;
-
   pointer-events: none;
   z-index: -2;
 }
@@ -73,58 +38,19 @@ body::before {
   }
 }
 
-
-/* ===== SOFT FLOATING GLOW (LESS INTENSE) ===== */
+/* ===== LIVE BACKGROUND ===== */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
-
-  background:
-    radial-gradient(circle at 20% 20%, rgba(124, 236, 255, 0.08), transparent 45%),
-    radial-gradient(circle at 80% 30%, rgba(85, 120, 255, 0.06), transparent 55%);
-
-  animation: glowMove 20s ease-in-out infinite alternate;
-
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* ===== LIVE BACKGROUND (VISIBLE BUT PREMIUM) ===== */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-
   background:
     radial-gradient(circle at 25% 25%, rgba(124, 236, 255, 0.16), transparent 50%),
     radial-gradient(circle at 75% 60%, rgba(85, 120, 255, 0.14), transparent 55%);
-
   animation: ambientMove 18s ease-in-out infinite alternate;
-
   pointer-events: none;
   z-index: -1;
 }
 
-/* Smooth premium motion */
-@keyframes ambientMove {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-    opacity: 0.85;
-  }
-
-  50% {
-    transform: translate(-40px, -25px) scale(1.06);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(30px, 15px) scale(1.04);
-    opacity: 0.9;
-  }
-}
-
-/* Smooth floating + breathing motion */
 @keyframes ambientMove {
   0% {
     transform: translate(0px, 0px) scale(1);
@@ -139,27 +65,6 @@ body::after {
   100% {
     transform: translate(20px, 10px) scale(1.03);
     opacity: 0.8;
-  }
-}
-
-@keyframes glowMove {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(-20px, -15px) scale(1.03);
-  }
-}
-
-/* Smooth floating glow animation */
-@keyframes glowMove {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  100% {
-    transform: translate(-30px, -20px) scale(1.05);
   }
 }
 
@@ -222,7 +127,6 @@ nav a:hover {
   color: #7cecff;
 }
 
-/* More refined, subtle glow */
 .glow {
   color: #ffffff;
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
@@ -387,7 +291,6 @@ nav a:hover {
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 50px rgba(124, 236, 255, 0.15);
 }
 
-/* Clean up hero animation, make it subtle */
 .hero-image::before {
   content: "";
   position: absolute;
@@ -402,7 +305,6 @@ nav a:hover {
 }
 
 @keyframes breathe {
-
   0%,
   100% {
     transform: scale(1);
@@ -415,7 +317,7 @@ nav a:hover {
   }
 }
 
-/* Tags and Pills */
+/* ===== TAGS ===== */
 .tag,
 .stat-tag {
   display: inline-block;
@@ -444,7 +346,7 @@ section {
   line-height: 1.1;
 }
 
-/* ===== BENTO CARDS & GRID ===== */
+/* ===== GRIDS ===== */
 .grid,
 .projects-grid {
   display: grid;
@@ -452,7 +354,28 @@ section {
   gap: 32px;
 }
 
-/* The Core Bento Grid Component */
+/* ===== HOME WORK SECTION LAYOUT ===== */
+.work-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.work-subgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.work-sidebar {
+  position: sticky;
+  top: 110px;
+  display: grid;
+  gap: 30px;
+}
+
+/* ===== BENTO GRID ===== */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -480,14 +403,10 @@ section {
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  /* Inner rim highlight */
   display: flex;
   flex-direction: column;
 }
 
-/* Grid Cell Sizing Rules Removed */
-
-/* Image handling for zero-distortion and perfect cropping */
 .card img,
 .project-card img,
 .bento-card img,
@@ -501,7 +420,6 @@ section {
   transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Add aspect ratio constraints if no specific height is set */
 .bento-media-wrap {
   position: relative;
   width: 100%;
@@ -510,7 +428,6 @@ section {
   border-radius: 32px;
 }
 
-/* Refined Hover States */
 .bento-card:hover,
 .card:hover,
 .project-card:hover {
@@ -566,7 +483,7 @@ section {
   font-weight: 300;
 }
 
-/* Dedicated about & contact box paddings */
+/* ===== ABOUT / CONTACT ===== */
 .about-box,
 .contact-box {
   padding: 20px;
@@ -611,14 +528,14 @@ footer {
   letter-spacing: 1px;
 }
 
-/* Responsive overrides for Bento */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
     padding-top: 160px;
   }
 
-  .hero>div {
+  .hero > div {
     grid-template-columns: 1fr !important;
     text-align: center;
     gap: 60px !important;
@@ -662,7 +579,18 @@ footer {
     padding: 40px 24px;
   }
 
-  /* Collapse Grid to vertical feed on tablets/mobile */
+  .work-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .work-subgrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .work-sidebar {
+    position: static;
+  }
+
   .grid,
   .projects-grid {
     grid-template-columns: 1fr !important;
@@ -685,7 +613,7 @@ footer {
   }
 }
 
-/* Animations */
+/* ===== ANIMATIONS ===== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -699,8 +627,7 @@ footer {
   }
 }
 
-
-/* Project Header Overrides */
+/* ===== PROJECT HEADER ===== */
 .project-header {
   font-family: 'Orbitron', sans-serif;
   font-size: clamp(48px, 7vw, 90px);
@@ -727,11 +654,8 @@ footer {
 .bento-card h2 {
   margin-bottom: 16px;
   font-weight: 600;
-  /* makes it slightly bold */
   color: #7cecff;
-  /* your blue */
   text-shadow: 0 0 12px rgba(124, 236, 255, 0.4);
-  /* subtle glow */
 }
 
 .project-list {
@@ -752,7 +676,7 @@ footer {
   letter-spacing: 2px;
 }
 
-/* Single Vertical Video Layout */
+/* ===== SINGLE VIDEO ===== */
 .single-video {
   max-width: 400px;
   margin: 0 auto 60px auto;
@@ -768,6 +692,7 @@ footer {
   display: block;
 }
 
+/* ===== GLOW TEXT ===== */
 .blue-glow {
   color: #7cecff;
   text-shadow:
@@ -792,6 +717,7 @@ footer {
   }
 }
 
+/* ===== SUCCESS MESSAGE ===== */
 .success-tick {
   display: flex;
   justify-content: center;
@@ -875,7 +801,6 @@ footer {
   overflow: hidden;
 }
 
-/* Shimmer effect moving down the line */
 .timeline::after {
   content: "";
   position: absolute;
@@ -891,13 +816,11 @@ footer {
   animation: lineShimmer 2.6s linear infinite;
 }
 
-/* Each item */
 .timeline-item {
   position: relative;
   margin-bottom: 50px;
 }
 
-/* Dot exactly centered on the line */
 .timeline-dot {
   position: absolute;
   left: 10px;
@@ -915,7 +838,6 @@ footer {
   z-index: 2;
 }
 
-/* Content */
 .timeline-content {
   padding-left: 30px;
 }
@@ -939,7 +861,6 @@ footer {
   font-size: 15px;
 }
 
-/* Animations */
 @keyframes dotPulse {
   0% {
     box-shadow:
@@ -1072,7 +993,6 @@ footer {
 }
 
 @keyframes aboutGlowPulse {
-
   0%,
   100% {
     transform: scale(1);
@@ -1085,7 +1005,6 @@ footer {
   }
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .premium-about-content {
     grid-template-columns: 1fr;
