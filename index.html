@@ -12,7 +12,6 @@
     href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
-  <!-- Premium CSS linked here -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
@@ -47,7 +46,6 @@
 
         <h1 style="max-width: 700px;">
           I Build <span class="blue-glow">Digital Worlds</span> Through Design
-
         </h1>
 
         <p>
@@ -55,7 +53,6 @@
           identities.
           Every design is crafted to feel immersive, bold, and ahead of its time, helping brands stand out in a
           fast-moving digital world.
-
         </p>
 
         <div class="buttons">
@@ -86,7 +83,7 @@
   <section id="work" style="padding-top: 40px;">
     <div class="container fade-in" style="padding-top: 0;">
 
-      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: start;">
+      <div class="work-layout">
 
         <!-- Left Column -->
         <div style="display: grid; gap: 30px;">
@@ -99,23 +96,24 @@
                 Cinematic Staging:<br />
                 <span style="color: #ffffff; font-size: 0.78em;">Moonmist Serum</span>
               </h3>
-              <p>A cinematic branding system built for a premium hair serum concept, blending dark metallic aesthetics,
+              <p>
+                A cinematic branding system built for a premium hair serum concept, blending dark metallic aesthetics,
                 luxury packaging, and atmospheric lighting to create a high-end visual identity.
               </p>
               <a href="moonmist.html" class="btn btn-secondary project-disclaimer-trigger">View Project</a>
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+          <div class="work-subgrid">
 
             <div class="project-card" style="padding: 0; min-height: 500px; display: flex; flex-direction: column;">
               <img src="assets/images/project-2.jpg" alt="Project 2" style="height: 300px;" />
               <div class="project-content" style="flex: 1;">
                 <div class="tag" style="margin-bottom: 15px;">Campaign // 02</div>
                 <h3>Café Launch</h3>
-                <p>A modern café campaign designed to elevate brand presence through clean visual storytelling,
+                <p>
+                  A modern café campaign designed to elevate brand presence through clean visual storytelling,
                   including packaging, posters, and social media creatives with a futuristic edge.
-
                 </p>
               </div>
             </div>
@@ -125,7 +123,8 @@
                 style="padding: 30px; min-height: 235px; display: flex; flex-direction: column; justify-content: center;">
                 <div class="tag" style="margin-bottom: 15px;">Stats</div>
                 <div style="font-family: 'Orbitron', sans-serif; font-size: 56px; line-height: 1; margin-bottom: 10px;">
-                  50+</div>
+                  50+
+                </div>
                 <p>Projects delivered for brands, businesses and social campaigns.</p>
               </div>
 
@@ -136,8 +135,9 @@
                   style="position: absolute; inset: 0; padding: 30px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to top, rgba(5,6,10,0.95), transparent);">
                   <div class="tag" style="margin-bottom: 15px; grid-area: 1;">Visual System // 03</div>
                   <h3 style="font-size: 26px;">Futuristic Poster Series</h3>
-                  <p style="margin-bottom: 0;">An experimental poster system combining robotic typography, dynamic
-                    layouts,and sci-fi inspired visuals to create a bold and futuristic visual language.
+                  <p style="margin-bottom: 0;">
+                    An experimental poster system combining robotic typography, dynamic layouts,and sci-fi inspired
+                    visuals to create a bold and futuristic visual language.
                   </p>
                 </div>
               </div>
@@ -147,7 +147,7 @@
         </div>
 
         <!-- Right Column (Sticky Content) -->
-        <div style="position: sticky; top: 110px; display: grid; gap: 30px;">
+        <div class="work-sidebar">
 
           <div class="project-card" style="padding: 40px;">
             <div class="tag" style="margin-bottom: 20px;">Selected Projects</div>
@@ -155,8 +155,9 @@
               Not Just Graphics.<br />Visual Experiences.
             </h2>
             <p>Check out the full portfolio of selected projects and make every block feel like a mini case study.</p>
-            <a href="projects.html" class="btn btn-primary project-disclaimer-trigger" style="margin-top: 10px;">All
-              Projects View</a>
+            <a href="projects.html" class="btn btn-primary project-disclaimer-trigger" style="margin-top: 10px;">
+              All Projects View
+            </a>
           </div>
 
           <div class="project-card"
@@ -233,7 +234,6 @@
       </h2>
 
       <div class="timeline">
-
         <div class="timeline-item">
           <div class="timeline-dot"></div>
 
@@ -248,7 +248,6 @@
             </p>
           </div>
         </div>
-
       </div>
 
     </div>
@@ -272,10 +271,8 @@
         <form id="contact-form" action="https://formspree.io/f/mdapjglw" method="POST"
           style="display: grid; gap: 20px; text-align: left;">
 
-          <!-- REMOVE redirect (not needed) -->
           <input type="hidden" name="_captcha" value="false">
 
-          <!-- Name Row -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
             <input type="text" name="firstName" placeholder="First Name" required
               style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white;">
@@ -284,27 +281,22 @@
               style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white;">
           </div>
 
-          <!-- Email -->
           <input type="email" name="email" placeholder="Email Address" required
             style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white;">
 
-          <!-- Subject -->
           <input type="text" name="subject" placeholder="Subject"
             style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white;">
 
-          <!-- Message -->
           <textarea name="message" placeholder="Your Message..." rows="6" required
             style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white; resize: none;"></textarea>
 
-          <!-- Submit Button -->
           <button type="submit" class="btn btn-primary" style="width: fit-content; margin-top: 10px;">
             Send Message
           </button>
 
         </form>
-        <!-- FORM END -->
 
-        <!-- SUCCESS MESSAGE (outside form) -->
+        <!-- SUCCESS MESSAGE -->
         <div id="success-message" style="
   display: none;
   margin-top: 30px;
@@ -330,8 +322,8 @@
           </div>
         </div>
       </div>
+    </div>
   </section>
-
 
   <!-- FOOTER -->
   <footer>
