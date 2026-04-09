@@ -12,6 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
+  <!-- Premium CSS linked here -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
@@ -46,6 +47,7 @@
 
         <h1 style="max-width: 700px;">
           I Build <span class="blue-glow">Digital Worlds</span> Through Design
+
         </h1>
 
         <p>
@@ -53,6 +55,7 @@
           identities.
           Every design is crafted to feel immersive, bold, and ahead of its time, helping brands stand out in a
           fast-moving digital world.
+
         </p>
 
         <div class="buttons">
@@ -61,7 +64,7 @@
         </div>
 
         <!-- Quick Stats -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 50px;">
+        <div class="hero-stats">
           <div class="card" style="padding: 18px;">
             <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;">50+</div>
             <div style="color: #aeb8d8; font-size: 14px; font-weight: 300;">Designs Created</div>
@@ -86,7 +89,7 @@
       <div class="work-layout">
 
         <!-- Left Column -->
-        <div style="display: grid; gap: 30px;">
+        <div class="work-main">
 
           <div class="project-card bento-hero-card" style="min-height: 420px;">
             <img src="assets/images/project-1.jpg" alt="Project 1" style="height: 100%;" />
@@ -106,7 +109,8 @@
 
           <div class="work-subgrid">
 
-            <div class="project-card" style="padding: 0; min-height: 500px; display: flex; flex-direction: column;">
+            <div class="project-card work-tall-card"
+              style="padding: 0; min-height: 500px; display: flex; flex-direction: column;">
               <img src="assets/images/project-2.jpg" alt="Project 2" style="height: 300px;" />
               <div class="project-content" style="flex: 1;">
                 <div class="tag" style="margin-bottom: 15px;">Campaign // 02</div>
@@ -118,7 +122,7 @@
               </div>
             </div>
 
-            <div style="display: grid; gap: 30px;">
+            <div class="work-mini-stack">
               <div class="project-card"
                 style="padding: 30px; min-height: 235px; display: flex; flex-direction: column; justify-content: center;">
                 <div class="tag" style="margin-bottom: 15px;">Stats</div>
@@ -146,18 +150,18 @@
           </div>
         </div>
 
-        <!-- Right Column (Sticky Content) -->
+        <!-- Right Column -->
         <div class="work-sidebar">
 
           <div class="project-card" style="padding: 40px;">
             <div class="tag" style="margin-bottom: 20px;">Selected Projects</div>
-            <h2 style="font-family: 'Orbitron', sans-serif; font-size: 38px; line-height: 1.1; margin-bottom: 20px;">
+            <h2 class="work-sidebar-title"
+              style="font-family: 'Orbitron', sans-serif; font-size: 38px; line-height: 1.1; margin-bottom: 20px;">
               Not Just Graphics.<br />Visual Experiences.
             </h2>
             <p>Check out the full portfolio of selected projects and make every block feel like a mini case study.</p>
-            <a href="projects.html" class="btn btn-primary project-disclaimer-trigger" style="margin-top: 10px;">
-              All Projects View
-            </a>
+            <a href="projects.html" class="btn btn-primary project-disclaimer-trigger" style="margin-top: 10px;">All
+              Projects View</a>
           </div>
 
           <div class="project-card"
@@ -234,6 +238,7 @@
       </h2>
 
       <div class="timeline">
+
         <div class="timeline-item">
           <div class="timeline-dot"></div>
 
@@ -248,6 +253,7 @@
             </p>
           </div>
         </div>
+
       </div>
 
     </div>
@@ -271,9 +277,11 @@
         <form id="contact-form" action="https://formspree.io/f/mdapjglw" method="POST"
           style="display: grid; gap: 20px; text-align: left;">
 
+          <!-- REMOVE redirect (not needed) -->
           <input type="hidden" name="_captcha" value="false">
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <!-- Name Row -->
+          <div class="contact-name-row">
             <input type="text" name="firstName" placeholder="First Name" required
               style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white;">
 
@@ -281,33 +289,29 @@
               style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white;">
           </div>
 
+          <!-- Email -->
           <input type="email" name="email" placeholder="Email Address" required
             style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white;">
 
+          <!-- Subject -->
           <input type="text" name="subject" placeholder="Subject"
             style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white;">
 
+          <!-- Message -->
           <textarea name="message" placeholder="Your Message..." rows="6" required
             style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); color: white; resize: none;"></textarea>
 
+          <!-- Submit Button -->
           <button type="submit" class="btn btn-primary" style="width: fit-content; margin-top: 10px;">
             Send Message
           </button>
 
         </form>
+        <!-- FORM END -->
 
-        <!-- SUCCESS MESSAGE -->
-        <div id="success-message" style="
-  display: none;
-  margin-top: 30px;
-  padding: 28px 24px;
-  border-radius: 18px;
-  background: rgba(0, 255, 200, 0.08);
-  border: 1px solid rgba(0, 255, 200, 0.3);
-  color: #7cecff;
-  text-align: center;
-  font-size: 18px;
-">
+        <!-- SUCCESS MESSAGE (outside form) -->
+        <div id="success-message"
+          style="display: none; margin-top: 30px; padding: 28px 24px; border-radius: 18px; background: rgba(0, 255, 200, 0.08); border: 1px solid rgba(0, 255, 200, 0.3); color: #7cecff; text-align: center; font-size: 18px;">
           <div class="success-tick">
             <svg viewBox="0 0 52 52" width="70" height="70">
               <circle class="tick-circle" cx="26" cy="26" r="25" fill="none" />
@@ -322,8 +326,8 @@
           </div>
         </div>
       </div>
-    </div>
   </section>
+
 
   <!-- FOOTER -->
   <footer>
