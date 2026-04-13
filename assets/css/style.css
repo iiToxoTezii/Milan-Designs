@@ -1354,9 +1354,3 @@ body.modal-open {
     width: 100%;
   }
 }
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
