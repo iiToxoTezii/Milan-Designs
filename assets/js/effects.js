@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initDisclaimerGuard();
     initAchievementsModal();
     fixEncoding();
+    initMobileNav();
 });
 
 
@@ -791,4 +792,49 @@ function initSplashScreen() {
             }, 800);
         }
     }, 200);
+}
+
+
+/* ===== MOBILE NAVIGATION LOGIC ===== */
+function initMobileNav() {
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    const links = document.querySelectorAll('nav ul li a');
+    
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggle.classList.toggle('active');
+        menu.classList.toggle('active');
+        
+        // Toggle body scroll
+        if (menu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+            if (lenis) lenis.stop();
+        } else {
+            document.body.style.overflow = '';
+            if (lenis) lenis.start();
+        }
+    });
+
+    // Close menu on link click
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            toggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+            if (lenis) lenis.start();
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+        if (menu.classList.contains('active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+            toggle.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+            if (lenis) lenis.start();
+        }
+    });
 }
