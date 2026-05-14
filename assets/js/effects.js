@@ -236,10 +236,11 @@ function initCustomCursor() {
     });
 
     function updateCursor() {
-        dotX += (mouseX - dotX) * 0.4;
-        dotY += (mouseY - dotY) * 0.4;
-        outlineX += (mouseX - outlineX) * 0.25;
-        outlineY += (mouseY - outlineY) * 0.25;
+        // Hyper-responsiveness factors (absolute precision)
+        dotX += (mouseX - dotX) * 0.75;
+        dotY += (mouseY - dotY) * 0.75;
+        outlineX += (mouseX - outlineX) * 0.4;
+        outlineY += (mouseY - outlineY) * 0.4;
 
         dot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
         outline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;

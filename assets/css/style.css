@@ -1483,6 +1483,32 @@ nav {
   100% { transform: scale(1); opacity: 1; }
 }
 
+/* Responsive Status Bar Fix */
+@media (max-width: 768px) {
+  .system-status-bar {
+    padding: 8px 15px !important;
+    font-size: 10px !important;
+    justify-content: space-around !important;
+  }
+  
+  /* Hide non-critical items on mobile to make room for achievements */
+  .system-status-bar .status-item:first-child,
+  .system-status-bar .status-item:last-child {
+    display: none !important;
+  }
+
+  .achievements-modal {
+    padding: 25px 20px !important;
+    width: 95% !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .achievements-title {
+    font-size: 20px !important;
+  }
+}
+
 /* ===== ACHIEVEMENT SYSTEM ===== */
 .achievement-container {
   position: fixed;
@@ -1910,8 +1936,8 @@ body:hover .cursor-dot, body:hover .cursor-outline { opacity: 1; }
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
-  transform: translateX(24px); /* Increased optical alignment shift */
+  margin: 0 auto 40px;
+  transform: none; /* Removed the previous optical shift that broke mobile centering */
 }
 
 .logo-svg {
@@ -2144,6 +2170,8 @@ body:hover .cursor-dot, body:hover .cursor-outline { opacity: 1; }
   font-size: 18px;
   margin-bottom: 30px;
 }
+
+
 
 
 
