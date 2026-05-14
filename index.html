@@ -2,31 +2,27 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Milan Jain | Futuristic Graphic Designer</title>
 
-  <meta name="description"
-    content="Milan Jain is a futuristic graphic designer focused on crafting bold visual identities, cinematic posters, and high-impact campaigns." />
-
-  <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://milanjaindesign.site/" />
-  <meta property="og:title" content="Milan | Futuristic Graphic Designer" />
-  <meta property="og:description"
-    content="Building digital worlds through design. Explore modern, striking, and premium visual experiences." />
-  <meta property="og:image" content="https://milanjaindesign.site/assets/images/your-best-design.jpg" />
+  <meta name="description" content="Explore the Anti Gravity archives. A premium portfolio showcasing futuristic brand identities and digital experiences by Milan Jain.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://milanjain.design/">
+  <meta property="og:title" content="Milan Jain | Futuristic Graphic Designer">
+  <meta property="og:description" content="Explore the Anti Gravity archives. High-end branding and cinematic digital experiences.">
+  <meta property="og:image" content="assets/images/social-preview.png">
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://milanjaindesign.site/" />
-  <meta property="twitter:title" content="Milan | Futuristic Graphic Designer" />
-  <meta property="twitter:description"
-    content="Building digital worlds through design. Explore modern, striking, and premium visual experiences." />
-  <meta property="twitter:image" content="https://milanjaindesign.site/assets/images/your-best-design.jpg" />
-
-  <!-- Preload Critical CSS -->
-  <link rel="preload" href="assets/css/style.css" as="style" />
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://milanjain.design/">
+  <meta property="twitter:title" content="Milan Jain | Futuristic Graphic Designer">
+  <meta property="twitter:description" content="Explore the Anti Gravity archives. High-end branding and cinematic digital experiences.">
+  <meta property="twitter:image" content="assets/images/social-preview.png">
+  <link rel="preload" href="assets/css/style.css?v=2.0.1" as="style" />
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,14 +32,63 @@
     rel="stylesheet">
 
   <!-- Premium CSS linked here -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2.0.1" />
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+  <style>
+    #page-transition {
+      position: fixed;
+      inset: 0;
+      background: #05060a;
+      z-index: 12000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #page-transition.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="scroll-progress"></div>
+  <div id="page-transition"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div id="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo-container">
+        <div class="scan-line"></div>
+        <svg class="logo-svg" viewBox="0 0 100 100">
+          <path class="logo-path m-path" d="M20 75 V25 L50 55 L80 25 V75" />
+          <path class="logo-path d-path" d="M35 25 H60 C80 25 80 75 60 75 H35" />
+          <path class="logo-path logo-frame" d="M5 5 H95 V95 H5 Z" />
+        </svg>
+      </div>
+      <div class="loader-container">
+        <div class="loader-bar" id="loader-bar"></div>
+      </div>
+      <div class="fact-container">
+        <div class="fact-label">Did you know?</div>
+        <p id="fact-text"></p>
+      </div>
+    </div>
+  </div>
+  <canvas id="particle-canvas"></canvas>
+
 
   <!-- NAVBAR -->
   <nav>
-    <div class="logo">MILAN//DESIGN</div>
+        <div class="logo" style="display: flex; align-items: center; gap: 10px; cursor: pointer;" onclick="window.location.href='index.html'">
+      <svg viewBox="0 0 100 100" style="width: 32px; height: 32px; filter: drop-shadow(0 0 8px rgba(124, 236, 255, 0.5));">
+        <path fill="none" stroke="#fff" stroke-width="8" d="M20 75 V25 L50 55 L80 25 V75" />
+        <path fill="none" stroke="#7cecff" stroke-width="8" d="M35 25 H60 C80 25 80 75 60 75 H35" />
+      </svg>
+      <span style="font-size: 18px; letter-spacing: 2px;">MD</span>
+    </div>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#work">Work</a></li>
@@ -59,7 +104,7 @@
       style="width: 100%; max-width: 1180px; display: grid; grid-template-columns: 0.85fr 1fr; gap: 40px; align-items: center;">
       <!-- Hero Image -->
       <div class="hero-image fade-in" style="order: 1; animation-delay: 0.2s;">
-        <img src="assets/images/your-best-design.jpg" alt="Best Design" />
+        <img loading="lazy" decoding="async" src="assets/images/your-best-design.jpg" alt="Best Design" />
       </div>
 
       <!-- Hero Text -->
@@ -74,7 +119,7 @@
         </h1>
 
         <p>
-          I create futuristic visual systems — from cinematic posters to high-impact social media campaigns and branding
+          I create futuristic visual systems &mdash; from cinematic posters to high-impact social media campaigns and branding
           identities.
           Every design is crafted to feel immersive, bold, and ahead of its time, helping brands stand out in a
           fast-moving digital world.
@@ -89,15 +134,15 @@
         <!-- Quick Stats -->
         <div class="hero-stats">
           <div class="card" style="padding: 18px;">
-            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;">50+</div>
+            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;" class="stat-number">50+</div>
             <div style="color: #aeb8d8; font-size: 14px; font-weight: 300;">Designs Created</div>
           </div>
           <div class="card" style="padding: 18px;">
-            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;">1+</div>
+            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;" class="stat-number">1+</div>
             <div style="color: #aeb8d8; font-size: 14px; font-weight: 300;">Years Exp.</div>
           </div>
           <div class="card" style="padding: 18px;">
-            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;">24H</div>
+            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;" class="stat-number">24H</div>
             <div style="color: #aeb8d8; font-size: 14px; font-weight: 300;">Fast Delivery</div>
           </div>
         </div>
@@ -139,9 +184,9 @@
                 decoding="async">
               <div class="project-content" style="flex: 1;">
                 <div class="tag" style="margin-bottom: 15px;">Campaign // 02</div>
-                <h3>Café Launch</h3>
+                <h3>Caf&eacute; Launch</h3>
                 <p>
-                  A modern café campaign designed to elevate brand presence through clean visual storytelling,
+                  A modern caf&eacute; campaign designed to elevate brand presence through clean visual storytelling,
                   including packaging, posters, and social media creatives with a futuristic edge.
                 </p>
               </div>
@@ -186,17 +231,17 @@
             </h2>
             <p>Check out the full portfolio of selected projects and make every block feel like a mini case study.</p>
             <a href="projects.html" class="btn btn-primary project-disclaimer-trigger" style="margin-top: 10px;">All
-              Projects View</a>
+              Projects View &rarr;</a>
           </div>
 
           <div class="project-card"
             style="padding: 40px; background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));">
             <div class="tag" style="margin-bottom: 20px;">Available For</div>
             <div style="display: grid; gap: 16px; font-size: 16px; font-weight: 300;">
-              <div>• Social Media Campaigns</div>
-              <div>• Branding &amp; Packaging</div>
-              <div>• Posters &amp; Advertising</div>
-              <div>• Premium Client Work</div>
+              <div>&bull; Social Media Campaigns</div>
+              <div>&bull; Branding &amp; Packaging</div>
+              <div>&bull; Posters &amp; Advertising</div>
+              <div>&bull; Premium Client Work</div>
             </div>
           </div>
 
@@ -206,6 +251,112 @@
     </div>
   </section>
 
+  <!-- WHY CHOOSE ME SECTION -->
+  <section id="why-choose-me">
+    <div class="container fade-in">
+      <div class="tag" style="margin-bottom: 20px; display: block; width: fit-content; margin-inline: auto;">Why Choose Me</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">
+        Elevating Design with <span class="blue">AI & Tech</span>
+      </h2>
+
+      <div class="features-grid">
+        <!-- AI Feature -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
+          </div>
+          <h3>AI-Powered Creativity</h3>
+          <p>
+            I leverage advanced AI integration for my design work, pushing the boundaries of visual conceptualization to create assets that are unique, cinematic, and ahead of the curve.
+          </p>
+        </div>
+
+        <!-- Web Feature -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <h3>Futuristic Web Apps</h3>
+          <p>
+            I build futuristic websites with the help of Antigravity prompts and launch-ready applications. My websites aren't just fast&mdash;they are immersive digital environments.
+          </p>
+        </div>
+
+        <!-- App Feature -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          </div>
+          <h3>Mobile-First Solutions</h3>
+          <p>
+            From conceptual UI/UX to functional mobile applications, I ensure your brand lives perfectly on every screen, prioritizing premium aesthetics and native performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TECH MARQUEE -->
+  <section class="tech-marquee">
+    <div class="marquee-content">
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-photoshop.svg" class="tech-icon"> PHOTOSHOP</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-illustrator.svg" class="tech-icon"> ILLUSTRATOR</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/figma/7cecff" class="tech-icon"> FIGMA</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-premiere.svg" class="tech-icon"> PREMIERE PRO</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-aftereffects.svg" class="tech-icon"> AFTER EFFECTS</div>
+      <!-- Duplicates for seamless scroll -->
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-photoshop.svg" class="tech-icon"> PHOTOSHOP</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-illustrator.svg" class="tech-icon"> ILLUSTRATOR</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/figma/7cecff" class="tech-icon"> FIGMA</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-premiere.svg" class="tech-icon"> PREMIERE PRO</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-aftereffects.svg" class="tech-icon"> AFTER EFFECTS</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-photoshop.svg" class="tech-icon"> PHOTOSHOP</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-illustrator.svg" class="tech-icon"> ILLUSTRATOR</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/figma/7cecff" class="tech-icon"> FIGMA</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-premiere.svg" class="tech-icon"> PREMIERE PRO</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-aftereffects.svg" class="tech-icon"> AFTER EFFECTS</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-photoshop.svg" class="tech-icon"> PHOTOSHOP</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-illustrator.svg" class="tech-icon"> ILLUSTRATOR</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/figma/7cecff" class="tech-icon"> FIGMA</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-premiere.svg" class="tech-icon"> PREMIERE PRO</div>
+      <div class="tech-item"><img loading="lazy" decoding="async" src="assets/images/adobe-aftereffects.svg" class="tech-icon"> AFTER EFFECTS</div>
+    </div>
+  </section>
+
+  <!-- APPS I USE -->
+  <section id="apps-i-use" style="padding: 100px 0;">
+    <div class="container fade-in">
+      <div class="tag" style="margin-bottom: 20px; display: block; width: fit-content; margin-inline: auto;">Creative Arsenal</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">
+        Apps I <span class="blue">Use</span>
+      </h2>
+      
+      <div class="apps-grid">
+        <div class="app-card">
+          <img loading="lazy" decoding="async" src="assets/images/adobe-photoshop.svg" alt="Photoshop">
+          <h4>Photoshop</h4>
+          <p>Advanced photo editing & manipulation</p>
+        </div>
+        <div class="app-card">
+          <img loading="lazy" decoding="async" src="assets/images/adobe-illustrator.svg" alt="Illustrator">
+          <h4>Illustrator</h4>
+          <p>Vector graphics & branding systems</p>
+        </div>
+        <div class="app-card">
+          <img loading="lazy" decoding="async" src="assets/images/adobe-aftereffects.svg" alt="After Effects">
+          <h4>After Effects</h4>
+          <p>Cinematic motion & visual effects</p>
+        </div>
+        <div class="app-card">
+          <img loading="lazy" decoding="async" src="assets/images/adobe-premiere.svg" alt="Premiere Pro">
+          <h4>Premiere Pro</h4>
+          <p>Professional video editing & production</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ABOUT SECTION -->
   <section id="about">
     <div class="container fade-in">
@@ -214,7 +365,7 @@
 
           <div class="about-image-wrap">
             <div class="about-image-glow"></div>
-            <img src="assets/images/about me.jpg" alt="Milan" class="about-image premium-about-image" / loading="lazy"
+            <img src="assets/images/about-me.jpg" alt="Milan" class="about-image premium-about-image" / loading="lazy"
               decoding="async">
           </div>
 
@@ -230,7 +381,7 @@
             </p>
 
             <p>
-              I don’t just design graphics — I build visual experiences. Every project is driven by storytelling,
+              I don't just design graphics &mdash; I build visual experiences. Every project is driven by storytelling,
               rhythm,
               and clarity, ensuring that each design not only looks striking but also communicates the brand in a
               powerful
@@ -238,14 +389,14 @@
             </p>
 
             <p>
-              With experience working on real-world client projects, I’ve contributed to branding systems, social media
+              With experience working on real-world client projects, I've contributed to branding systems, social media
               campaigns, and high-impact visuals across multiple industries. I focus on delivering work that feels
               premium,
               intentional, and aligned with modern digital aesthetics.
             </p>
 
             <p>
-              My goal is simple — to help brands stand out in a crowded space with visuals that feel distinct,
+              My goal is simple &mdash; to help brands stand out in a crowded space with visuals that feel distinct,
               future-ready, and impossible to ignore.
             </p>
           </div>
@@ -270,7 +421,7 @@
 
           <div class="timeline-content">
             <h3>Eywa Solutions Pvt Ltd</h3>
-            <span class="timeline-date">July 2024 — September 2025</span>
+            <span class="timeline-date">July 2024 &mdash; September 2025</span>
 
             <p>
               Joined as an Associate Graphic Designer and progressed to a full-time role within the core team.
@@ -296,7 +447,7 @@
         </h2>
 
         <p style="margin-inline: auto; max-width: 600px; margin-bottom: 40px;">
-          Ready to create something bold? Fill out the form below and I’ll get back to you soon.
+          Ready to create something bold? Fill out the form below and I'll get back to you soon.
         </p>
 
         <!-- FORM START -->
@@ -348,16 +499,36 @@
             Message sent successfully!
           </div>
           <div style="margin-top: 8px; color: #b6c2e3; font-size: 15px;">
-            I’ll get back to you soon.
+            I'll get back to you soon.
           </div>
         </div>
       </div>
   </section>
 
 
+  <!-- TRANSMISSIONS (TESTIMONIALS) -->
+  <section id="transmissions">
+    <div class="container fade-in">
+      <div class="tag" style="margin-bottom: 20px; display: block; width: fit-content; margin-inline: auto;">Reception Log</div>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">
+        Incoming <span class="blue">Transmissions</span>
+      </h2>
+      
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>SOURCE: CLIENT_REVIEWS_DB</span>
+          <span>STATUS: DECRYPTED</span>
+        </div>
+        <div class="terminal-body" id="testimonial-text">
+          > INITIALIZING DATA RECOVERY...
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
-    © 2026 Milan Jain // Graphic Designer
+    &copy; 2026 Milan Jain // Graphic Designer
   </footer>
 
   <script>
@@ -397,7 +568,7 @@
 
       <p style="color: #b6c2e3; line-height: 1.8; margin-bottom: 16px;">
         The packaging design was supplied by the client. My contribution focused on refining and presenting it through
-        visual compositions tailored for social media. Any modifications to elements were made in line with the client’s
+        visual compositions tailored for social media. Any modifications to elements were made in line with the client's
         vision and approved creative direction.
       </p>
 
@@ -439,6 +610,7 @@
     projectTriggers.forEach(trigger => {
       trigger.addEventListener("click", function (e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         openProjectModal(this.getAttribute("href"));
       });
     });
@@ -459,6 +631,113 @@
     });
   </script>
 
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/effects.js?v=2.0.1"></script>
+
+    <!-- ACHIEVEMENT NOTIFICATION -->
+  <div id="achievement-popup" class="achievement-container">
+    <div class="achievement-icon">&starf;</div>
+    <div class="achievement-text">
+      <h4 id="achievement-title">ACHIEVEMENT UNLOCKED</h4>
+      <p id="achievement-desc">You've discovered a secret.</p>
+    </div>
+  </div>
+
+      <!-- SYSTEM STATUS BAR -->
+  <div class="system-status-bar">
+    <div class="status-item">
+      <div class="status-dot"></div>
+      <span id="status-text">SYSTEM: OPTIMAL</span>
+    </div>
+        <div class="status-item achievements-trigger" style="cursor: pointer; color: #7cecff;">
+      <span style="margin-right: 8px;">🏆</span>
+      <span id="achievement-count">0/10</span>
+    </div>
+     <div class="status-item sound-toggle" id="sound-toggle">
+      <span>SOUND: OFF</span>
+    </div>
+    <div class="status-item">
+      <span>LATENCY: 14MS</span>
+      <span id="live-clock" style="margin-left: 20px;">00:00:00</span>
+    </div>
+  </div>
+
+    <!-- ACHIEVEMENTS MODAL -->
+  <div id="achievements-modal" class="achievements-modal-overlay">
+    <div class="achievements-modal">
+      <button class="close-achievements" id="close-achievements">&times;</button>
+      <div class="achievements-header">
+        <div class="achievements-title">
+          <span>🏆</span> MISSION LOG
+        </div>
+        <p class="achievements-desc">
+          These achievements are earned by exploring and scrolling through the website. Unlock all milestones to complete the Milan Protocol.
+        </p>
+      </div>
+
+      <div class="progress-container">
+        <div id="achievement-progress" class="progress-bar"></div>
+      </div>
+
+      <div id="achievements-list" class="achievements-list" data-lenis-prevent>
+        <!-- Dynamically filled -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CONGRATULATIONS POPUP -->
+  <div id="congrats-popup" class="congrats-popup">
+    <span class="congrats-icon">🎖️</span>
+    <h2>MISSION COMPLETE</h2>
+    <p>You have successfully decoded every visual system in the Anti Gravity archives.</p>
+    <button class="btn btn-primary" onclick="this.parentElement.classList.remove('active')">DISMISS</button>
+  </div>
 </body>
 
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

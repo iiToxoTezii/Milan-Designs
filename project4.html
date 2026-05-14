@@ -26,7 +26,7 @@
   <meta property="twitter:image" content="https://milanjaindesign.site/assets/images/your-best-design.jpg" />
 
   <!-- Preload Critical CSS -->
-  <link rel="preload" href="assets/css/style.css" as="style" />
+  <link rel="preload" href="assets/css/style.css?v=2.0.1" as="style" />
 
 
   <link
@@ -34,14 +34,37 @@
     rel="stylesheet">
 
 
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.0.1">
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+  <style>
+    #page-transition {
+      position: fixed;
+      inset: 0;
+      background: #05060a;
+      z-index: 12000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #page-transition.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="scroll-progress"></div>
+  <div id="page-transition"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <canvas id="particle-canvas"></canvas>
 
   <div class="container fade-in">
 
-    <a href="projects.html" class="back">← Back to Projects</a>
+    <a href="projects.html" class="back">&larr;� Back to Projects</a>
 
     <div class="tag">Client Project // Product Advertising</div>
 
@@ -53,13 +76,13 @@
     <p class="intro-text">
       The client provided the packaging design for an energy drink, and the goal was to transform it into a dynamic
       visual experience. I integrated the packaging into a realistic mockup and created an animation video that aligns
-      perfectly with the product’s design language, ensuring a cohesive and impactful final result for digital
+      perfectly with the product's design language, ensuring a cohesive and impactful final result for digital
       platforms.
     </p>
 
     <div class="single-video">
       <video autoplay muted loop playsinline controls>
-        <source src="assets/images/vigra-video.mp4" type="video/mp4">
+        <source src="assets/videos/vigra-video.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -67,10 +90,10 @@
       <div class="bento-card bento-half" style="padding: 40px; justify-content: center;">
         <h2>What I Did</h2>
         <p>
-          • Integrated the client’s provided packaging design into realistic product mockups<br><br>
-          • Matched the visual environment and elements to align perfectly with the packaging theme<br><br>
-          • Created a dynamic animation video that reflects the design language of the product<br><br>
-          • Enhanced lighting, motion and overall realism for social media and ad-ready output
+          &bull; Integrated the client's provided packaging design into realistic product mockups<br><br>
+          &bull; Matched the visual environment and elements to align perfectly with the packaging theme<br><br>
+          &bull; Created a dynamic animation video that reflects the design language of the product<br><br>
+          &bull; Enhanced lighting, motion and overall realism for social media and ad-ready output
         </p>
       </div>
 
@@ -86,6 +109,114 @@
 
   </div>
 
+  
+
+    <!-- ACHIEVEMENT NOTIFICATION -->
+  <div id="achievement-popup" class="achievement-container">
+    <div class="achievement-icon">&starf;</div>
+    <div class="achievement-text">
+      <h4 id="achievement-title">ACHIEVEMENT UNLOCKED</h4>
+      <p id="achievement-desc">You've discovered a secret.</p>
+    </div>
+  </div>
+
+    <!-- SYSTEM STATUS BAR -->
+  <div class="system-status-bar">
+    <div class="status-item">
+      <div class="status-dot"></div>
+      <span id="status-text">SYSTEM: OPTIMAL</span>
+    </div>
+        <div class="status-item achievements-trigger" style="cursor: pointer; color: #7cecff;">
+      <span style="margin-right: 8px;">🏆</span>
+      <span id="achievement-count">0/10</span>
+    </div>
+     <div class="status-item sound-toggle" id="sound-toggle">
+      <span>SOUND: OFF</span>
+    </div>
+    <div class="status-item">
+      <span>LATENCY: 14MS</span>
+      <span id="live-clock" style="margin-left: 20px;">00:00:00</span>
+    </div>
+  </div>
+
+  <script src="assets/js/particles.js"></script>
+  <script src="assets/js/effects.js?v=2.0.1"></script>
+  <!-- ACHIEVEMENTS MODAL -->
+  <div id="achievements-modal" class="achievements-modal-overlay">
+    <div class="achievements-modal">
+      <button class="close-achievements" id="close-achievements">&times;</button>
+      <div class="achievements-header">
+        <div class="achievements-title">
+          <span>🏆</span> MISSION LOG
+        </div>
+        <p class="achievements-desc">
+          These achievements are earned by exploring and scrolling through the website. Unlock all milestones to complete the Milan Protocol.
+        </p>
+      </div>
+
+      <div class="progress-container">
+        <div id="achievement-progress" class="progress-bar"></div>
+      </div>
+
+      <div id="achievements-list" class="achievements-list" data-lenis-prevent>
+        <!-- Dynamically filled -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CONGRATULATIONS POPUP -->
+  <div id="congrats-popup" class="congrats-popup">
+    <span class="congrats-icon">🎖️</span>
+    <h2>MISSION COMPLETE</h2>
+    <p>You have successfully decoded every visual system in the Anti Gravity archives.</p>
+    <button class="btn btn-primary" onclick="this.parentElement.classList.remove('active')">DISMISS</button>
+  </div>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
