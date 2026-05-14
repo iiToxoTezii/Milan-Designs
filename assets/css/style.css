@@ -1302,17 +1302,6 @@ body.modal-open {
   height: 40px;
   width: auto;
   display: block;
-}
-
-/* Navbar alignment */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo img {
-  height: 40px;
   filter: drop-shadow(0 0 6px rgba(120, 150, 255, 0.6));
 }
 
@@ -1332,6 +1321,7 @@ nav {
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   gap: 30px;
 }
 

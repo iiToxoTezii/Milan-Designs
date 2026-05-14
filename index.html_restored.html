@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milan Jain | Futuristic Graphic Designer</title>
+
+  <meta name="description" content="Explore the Anti Gravity archives. A premium portfolio showcasing futuristic brand identities and digital experiences by Milan Jain.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://milanjain.design/">
+  <meta property="og:title" content="Milan Jain | Futuristic Graphic Designer">
+  <meta property="og:description" content="I'm Milan, a futuristic graphic designer focused on crafting bold visual identities that feel immersive and forward-thinking. Explore the Anti Gravity archives.">
+  <meta property="og:image" content="assets/images/social-preview.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://milanjain.design/">
+  <meta property="twitter:title" content="Milan Jain | Futuristic Graphic Designer">
+  <meta property="twitter:description" content="I'm Milan, a futuristic graphic designer focused on crafting bold visual identities that feel immersive and forward-thinking. Explore the Anti Gravity archives.">
+  <meta property="twitter:image" content="assets/images/social-preview.png">
+  <link rel="preload" href="assets/css/style.css?v=2.0.1" as="style" />
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Premium CSS linked here -->
+  <link rel="stylesheet" href="assets/css/style.css?v=2.0.1" />
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+  <style>
+    #page-transition {
+      position: fixed;
+      inset: 0;
+      background: #05060a;
+      z-index: 12000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    #page-transition.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/favicon.png">
+  <link rel="shortcut icon" href="assets/images/favicon.png">
+</head>
+
+<body>
+  <div id="scroll-progress"></div>
+  <div id="page-transition"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div id="splash-screen">
+    <div class="splash-content">
+      <div class="splash-logo-container">
+        <div class="scan-line"></div>
+        <svg class="logo-svg" viewBox="0 0 100 100">
+          <path class="logo-path m-path" d="M20 75 V25 L50 55 L80 25 V75" />
+          <path class="logo-path d-path" d="M35 25 H60 C80 25 80 75 60 75 H35" />
+          <path class="logo-path logo-frame" d="M5 5 H95 V95 H5 Z" />
+        </svg>
+      </div>
+      <div class="loader-container">
+        <div class="loader-bar" id="loader-bar"></div>
+      </div>
+      <div class="fact-container">
+        <div class="fact-label">Did you know?</div>
+        <p id="fact-text"></p>
+      </div>
+    </div>
+  </div>
+  <canvas id="particle-canvas"></canvas>
+
+
+  <!-- NAVBAR -->
+  <nav>
+        <div class="logo" style="display: flex; align-items: center; gap: 10px; cursor: pointer;" onclick="window.location.href='index.html'">
+      <svg viewBox="0 0 100 100" style="width: 32px; height: 32px; filter: drop-shadow(0 0 8px rgba(124, 236, 255, 0.5));">
+        <path fill="none" stroke="#fff" stroke-width="8" d="M20 75 V25 L50 55 L80 25 V75" />
+        <path fill="none" stroke="#7cecff" stroke-width="8" d="M35 25 H60 C80 25 80 75 60 75 H35" />
+      </svg>
+      <span style="font-size: 18px; letter-spacing: 2px;">MD</span>
+    </div>
+    <div class='nav-toggle' id='navToggle'><span></span><span></span><span></span></div><ul id='navMenu'>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div
+      style="width: 100%; max-width: 1180px; display: grid; grid-template-columns: 0.85fr 1fr; gap: 40px; align-items: center;">
+      <!-- Hero Image -->
+      <div class="hero-image fade-in" style="order: 1; animation-delay: 0.2s;">
+        <img loading="lazy" decoding="async" src="assets/images/your-best-design.jpg" alt="Best Design" />
+      </div>
+
+      <!-- Hero Text -->
+      <div class="fade-in" style="order: 2; position: relative;">
+        <div class="tag" style="margin-bottom: 20px;">
+          Freelance Graphic Designer
+        </div>
+
+        <h1 style="max-width: 700px;">
+          I Build <span class="blue-glow">Digital Worlds</span> Through Design
+
+        </h1>
+
+        <p>
+          I create futuristic visual systems &mdash; from cinematic posters to high-impact social media campaigns and branding
+          identities.
+          Every design is crafted to feel immersive, bold, and ahead of its time, helping brands stand out in a
+          fast-moving digital world.
+
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#work">Explore Work</a>
+          <a class="btn btn-secondary" href="resume.html">Download CV</a>
+          <a class="btn btn-secondary" href="#contact">Start Project</a>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="hero-stats">
+          <div class="card" style="padding: 18px;">
+            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;" class="stat-number">50+</div>
+            <div style="color: #aeb8d8; font-size: 14px; font-weight: 300;">Designs Created</div>
+          </div>
+          <div class="card" style="padding: 18px;">
+            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;" class="stat-number">1+</div>
+            <div style="color: #aeb8d8; font-size: 14px; font-weight: 300;">Years Exp.</div>
+          </div>
+          <div class="card" style="padding: 18px;">
+            <div style="font-size: 30px; font-family: 'Orbitron', sans-serif; color: #ffffff;" class="stat-number">24H</div>
+            <div style="color: #aeb8d8; font-size: 14px; font-weight: 300;">Fast Delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
